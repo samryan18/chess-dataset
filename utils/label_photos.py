@@ -19,6 +19,7 @@ labels = [pattern.sub(lambda m: rep[re.escape(m.group(0))], x.strip())
 
 print(f'Found {len(labels)} labels.')
 
+# make unique if necessary
 filename_labels = []
 label_counts = {}
 for label in labels:
@@ -40,9 +41,9 @@ directory_list = [x for x in directory_list if ('jpg' in x
                                                 or 'JPG' in x 
                                                 or 'jpeg' in x 
                                                 or 'PNG' in x)]
-print(str(len(directory_list)) + ' is the length of directory_list')
+
+print(f'Changing names for {len(directory_list)} files.')
 directory_list.sort()
-print(directory_list)
 
 if not (len(directory_list)==len(filename_labels)):
     raise Exception(f'ya messed up wrong num files/labels '
@@ -54,7 +55,6 @@ for i,fname in enumerate(directory_list):
     src = f'{PATH_TO_PHOTOS}/{fname}'
     label = (filename_labels[i]).replace('/','-')
     dest = (f'{PATH_TO_PHOTOS}/{label}.{ext}')
-    print(dest)
     os.rename(src, dest)
 
-print(f'successfully renamed {len(directory_list)} files')
+print(f'Successfully renamed {len(directory_list)} files')
