@@ -1,9 +1,21 @@
 import os
+import re
 
-with open('labels.txt') as f:
+
+LABELS_TEXTFILE_PATH = 'labels2.txt'
+PATH_TO_PHOTOS = 'photos_unlabeled'
+
+
+with open(LABELS_TEXTFILE_PATH) as f:
     labels = f.readlines()
-labels = [x.strip().replace('\n','').replace(' ','').replace('\t','') 
+
+# strip bad chars from labels
+rep = {'\n':'', ' ':'','\t':''}
+rep = dict((re.escape(k), v) for k, v in rep.items())
+pattern = re.compile("|".join(rep.keys()))
+labels = [pattern.sub(lambda m: rep[re.escape(m.group(0))], x.strip()) 
                     for x in labels]
+
 
 print(f'Found {len(labels)} labels.')
 
@@ -22,22 +34,27 @@ for label in labels:
 
 print(f'Made the {len(filename_labels)} labels unique.')
 
-path_to_photos = 'good_ass_labels'
-directory_list = os.listdir(path_to_photos)
-directory_list = [x for x in directory_list if ('jpg' in x or 'png' in x or 'JPG' in x or 'jpeg' in x or 'PNG' in x)]
+directory_list = os.listdir(PATH_TO_PHOTOS)
+directory_list = [x for x in directory_list if ('jpg' in x 
+                                                or 'png' in x 
+                                                or 'JPG' in x 
+                                                or 'jpeg' in x 
+                                                or 'PNG' in x)]
 print(str(len(directory_list)) + ' is the length of directory_list')
 directory_list.sort()
 print(directory_list)
 
 if not (len(directory_list)==len(filename_labels)):
-    print('get fucked wrong num files')
+    raise Exception(f'ya messed up wrong num files/labels '
+                    f'{len(directory_list)} files'
+                    f'len(filename_labels) labels')
 
 for i,fname in enumerate(directory_list):
     ext = fname.split('.')[-1]
-    src = f'{path_to_photos}/{fname}'
+    src = f'{PATH_TO_PHOTOS}/{fname}'
     label = (filename_labels[i]).replace('/','-')
-    dest = (f'{path_to_photos}/{label}.{ext}')
+    dest = (f'{PATH_TO_PHOTOS}/{label}.{ext}')
     print(dest)
     os.rename(src, dest)
 
-print('successfully renamed files')
+print(f'successfully renamed {len(directory_list)} files')
