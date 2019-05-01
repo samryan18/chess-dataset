@@ -7,9 +7,7 @@
  Includes both raw images and preprocessed images. More info on preprocessing can be found [here](https://github.com/samryan18/chess-ray-vision
  "").
 
- ## Example Original
- <img src="./labeled_originals/8-1Nk1b2p-8-2pBpb2-p7-2P3P1-1P1K3P-8.JPG" alt="Example photo" width="90%" />
+ ## Example Original and Preprocessed
+ <img src="./labeled_originals/8-1Nk1b2p-8-2pBpb2-p7-2P3P1-1P1K3P-8.JPG" alt="Example photo" width="75%" />
 
-
- ## Example Preprocessed
- <img src="./labeled_preprocessed/8-1Nk1b2p-8-2pBpb2-p7-2P3P1-1P1K3P-8.png" alt="Example photo" width="90%" />
+ <img src="./labeled_preprocessed/8-1Nk1b2p-8-2pBpb2-p7-2P3P1-1P1K3P-8.png" alt="Example photo" width="75%" />
