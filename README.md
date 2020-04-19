@@ -16,5 +16,5 @@ labeled_originals/
 # contains 500 board images labeled with FEN notation
 
 labeled_preprocessed/
-# contains preprocessed images lebeled with FEN notation (1:1 correspondence with original photos)
+# contains preprocessed images labeled with FEN notation (1:1 correspondence with original photos)
 ```
