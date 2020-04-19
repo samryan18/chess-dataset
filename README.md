@@ -1,13 +1,20 @@
 # Chess Board Dataset
 
 ## Description:
-500 photos of chess boards labeled with [Forsyth–Edwards Notation](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation
- "") for use in image classification.
- 
- Includes both raw images and preprocessed images. More info on preprocessing can be found [here](https://github.com/samryan18/chess-ray-vision
- "").
+500 images of chess boards labeled with [Forsyth–Edwards Notation](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation
+"") for use in image classification.
 
- ## Example Original and Preprocessed
- <img src="./labeled_originals/8-1Nk1b2p-8-2pBpb2-p7-2P3P1-1P1K3P-8.JPG" alt="Example photo" width="75%" />
+Includes both raw images and preprocessed images. More info on preprocessing can be found [here](https://github.com/samryan18/chess-ray-vision
+"").
 
- <img src="./labeled_preprocessed/8-1Nk1b2p-8-2pBpb2-p7-2P3P1-1P1K3P-8.png" alt="Example photo" width="75%" />
+## Example Original and Preprocessed
+<img src="./assets/example.png" alt="Example photo" width="90%" />
+
+## Directory Structure
+```
+labeled_originals/
+# contains 500 board images labeled with FEN notation
+
+labeled_preprocessed/
+# contains preprocessed images lebeled with FEN notation (1:1 correspondence with original photos)
+```
